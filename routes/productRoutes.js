@@ -1,10 +1,11 @@
 const express = require('express');
 const router  = express.Router();
 const productController = require('../controllers/productController')
+const authValidation  = require('../middleware/authValidation')
 
 router.post('/', productController.createProduct)
 
-router.get('/', productController.getAllProducts)
+router.get('/', authValidation.authValidate, productController.getAllProducts)
 
 router.get('/:id', productController.getProductById);
 

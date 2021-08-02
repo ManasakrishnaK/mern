@@ -26,7 +26,7 @@ module.exports.getAllProducts = async (req, res) => {
     console.log(req.body)
     let response = {}
     try {
-        let resFromService = await productService.getAllProducts()
+        let resFromService = await productService.getAllProducts();
         response.status = 200;
         response.message = "Product fetched Successfully"
         response.body = resFromService
